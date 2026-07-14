@@ -1,7 +1,12 @@
-# Tauri + React + Typescript
+# tauri-text-editor
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+This is a simple text editor made using:
 
-## Recommended IDE Setup
+- Tauri (and Rust)
+- React
+- Typescript
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+Current features:
+
+- Opening and saving files
+- Writing to files

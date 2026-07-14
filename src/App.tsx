@@ -52,27 +52,37 @@ function App() {
   };
 
   return (
-  <div className="editor-container">
-    <div className="toolbar">
-      <div className="button-group">
-        <button onClick={handleOpen}>📂 Open</button>
-        <button onClick={handleSave}>💾 Save</button>
+    <div className="editor-container">
+      <div className="toolbar">
+        <div className="button-group">
+          <button onClick={handleOpen}>📂 Open</button>
+          <button onClick={handleSave}>💾 Save</button>
+        </div>
+        <span className="file-path" title={filePath || "New File"}>
+          {filePath ? filePath : "Untitled.txt"}
+        </span>
       </div>
-      <span className="file-path" title={filePath || "New File"}>
-        {filePath ? filePath : "Untitled.txt"}
-      </span>
+      <div className="editor-workspace">
+        <textarea
+          className="text-editor"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          placeholder="Type something amazing here..."
+          spellCheck="false"
+        />
+      </div>
+      <div className="status-bar">
+        <div className="status-left">
+          <span>UTF-8</span>
+        </div>
+        <div className="status-right" >
+          <span>{content.split(/\s+/).filter(Boolean).length} Words</span>
+          <span className="separator">|</span>
+          <span>{content.length} Characters</span>
+        </div>
+      </div>
     </div>
-    <div className="editor-workspace">
-      <textarea
-        className="text-editor"
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
-        placeholder="Type something amazing here..."
-        spellCheck="false"
-      />
-    </div>
-  </div>
-);
+  );
 }
 
 export default App;

@@ -101,3 +101,27 @@
 .text-editor::-webkit-scrollbar-thumb:hover {
   background: #3d3d3d;
 }
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #212121;
+  padding: 4px 16px;
+  font-size: 0.75rem;
+  color: #808080;
+  border-top: 1px solid #1a1a1a;
+  height: 24px;
+  align-items: center;
+  user-select: none; /* Prevents accidentally highlighting status text */
+}
+
+.status-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-right .separator {
+  color: #3d3d3d;
+  font-weight: 300;
+}

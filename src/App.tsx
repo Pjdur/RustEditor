@@ -7,6 +7,26 @@ function App() {
   const [content, setContent] = useState<string>("");
   const [filePath, setFilePath] = useState<string | null>(null);
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      const textarea = e.currentTarget;
+      const { selectionStart, selectionEnd } = textarea;
+
+      const newContent =
+        content.substring(0, selectionStart) +
+        "    " +
+        content.substring(selectionEnd);
+
+      setContent(newContent);
+
+      // Reposition cursor after the tab
+      setTimeout(() => {
+        textarea.selectionStart = textarea.selectionEnd = selectionStart + 4;
+      }, 0);
+    }
+  };
+
   // Trigger Native Open File Dialog
   const handleOpen = async () => {
     try {
@@ -69,6 +89,7 @@ function App() {
           onChange={(e) => setContent(e.target.value)}
           placeholder="Type something amazing here..."
           spellCheck="false"
+          onKeyDown={handleKeyDown}
         />
       </div>
       <div className="status-bar">

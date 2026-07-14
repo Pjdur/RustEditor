@@ -1,4 +1,4 @@
-# tauri-text-editor
+# RustEditor
 
 This is a simple text editor made using:
 

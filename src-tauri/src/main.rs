@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    tauri_text_editor_lib::run()
+    rust_editor_lib::run()
 }
